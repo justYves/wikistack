@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/',function(req,res,next){
-	res.render('add_page',{title: 'WikiStack'})
+	res.render('add_page',{title: 'WikiStack', button_title: 'ADD'})
 })
 
 router.post('/submit',function(req,res,next){

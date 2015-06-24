@@ -15,7 +15,6 @@ router.get('/wiki/:title', function(req, res, next){
 	var title = req.params.title;
 
 	models.Page.findOne({ url_name: title }, function(err, data){
-		// console.log("called");
 		var similarTags = data.tags;
 		var currentPage = data;
 

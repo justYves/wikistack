@@ -11,7 +11,9 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var addRoutes = require('./routes/add');
-var searchRoutes = require("./routes/search")
+var searchRoutes = require("./routes/search");
+var editRoutes = require("./routes/edit");
+var deleteRoutes = require('./routes/delete');
 
 var app = express();
 
@@ -33,6 +35,8 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/add',addRoutes);
 app.use('/search',searchRoutes);
+app.use('/edit', editRoutes);
+app.use('/delete', deleteRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

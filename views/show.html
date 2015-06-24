@@ -6,6 +6,12 @@
     <h1>{{ doc.title}}</h1>
     <p class="text-muted"> tags: {{ doc|tag_link}} </p>  
 	<p>  {{ doc.content | marked }} <p> 
-
+	<form action = '/edit/{{ doc.title }}' method = 'get'>
+		<button type="submit" class="btn btn-warning">Edit</button>
+	</form>
+	<form action = '/delete' method = 'get'>
+		<input type = 'hidden' name = 'deleteTitle' value = '{{ doc.title }}'>
+		<button type = 'submit' class = 'btn btn-danger'>DELETE</button>
+	</form>
     
 {% endblock %}

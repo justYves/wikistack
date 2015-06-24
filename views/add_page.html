@@ -3,24 +3,26 @@
 {% block title %} {{title}} {% endblock %}
 
 {% block content %}
-    <h1>ADD A PAGE</h1>
-    <form action="/add/submit" method="POST">
+    <h1>{{ button_title }} A PAGE</h1>
+    <form action="/{{ button_title }}/submit" method="POST">
 
 	    <div id="form_group">
 				<label for="page-title">PAGE TITLE</label>
-	    	<input name="pageTitle" type="text" class="form-control" id="page-title">
+	    	<input name="pageTitle" type="text" class="form-control" id="page-title" value = '{{doc.title}}'>
 	    </div>
 
 	   	<div id="form_group">
 				<label for="page-tags">PAGE TAGS</label>
-	    	<input name="pageTags" type="text" class="form-control" id="page-tags">
+	    	<input name="pageTags" type="text" class="form-control" id="page-tags" value = '{{ tags }}'>
 	    </div>
 
 	    <div id="form_group">
 				<label for="page-title">PAGE CONTENT</label>
-	    	<textarea name="pageText" class="form-control" rows="12"></textarea>
+	    	<textarea name="pageText" class="form-control" rows="12">{{ doc.content }}</textarea>
 	    </div>
-	    <button type="submit" class="btn btn-primary"> SUBMIT </button>
+
+	    <input type = 'hidden' value = '{{ doc.title }}' name = 'oldTitle'>
+	    <button type="submit" class="btn btn-primary"> {{button_title}} </button>
 
     </form>
     
