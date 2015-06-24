@@ -1,9 +1,11 @@
-{% extends "layout.html" %}
+{% extends "index.html" %}
 
 {% block title %} {{title}} {% endblock %}
 
-{% block content %}
-    <h1>{{ doc.title }}</h1>
-	<p> {{ doc|marked}} <p>    
+{% block article %}
+    <h1>{{ doc.title}}</h1>
+    <p class="text-muted"> tags: {{ doc|tag_link}} </p>  
+	<p>  {{ doc.content | marked }} <p> 
+
     
 {% endblock %}

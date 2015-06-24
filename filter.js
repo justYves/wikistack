@@ -15,9 +15,20 @@ module.exports = function(swig) {
   swig.setFilter('page_link', page_link);
 
   var marked = require('marked');
-  var markedFilter = function(doc){
-    return marked(doc);
+  var markedFilter = function(body){
+    return marked(body);
   }; 
   markedFilter.safe = true;
   swig.setFilter('marked',markedFilter);
+
+
+
+  var tag_link = function(doc){
+    return doc.tags.map(function(tag){
+      return "<a href='/search/tag/"+tag +"'>" + tag +"</a>";
+    })
+  }
+
+  tag_link.safe = true;
+  swig.setFilter('tag_link', tag_link)
 };

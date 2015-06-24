@@ -15,7 +15,18 @@ router.get('/wiki/:title', function(req, res, next){
 	var title = req.params.title;
 
 	models.Page.findOne({ url_name: title }, function(err, data){
-		res.render('show', {doc: data});
+		// console.log("called");
+		var similarTags = data.tags;
+		var currentPage = data;
+
+		models.Page.findSimilar(similarTags,currentPage.title,function(err,data){
+			res.render('show', {
+				doc: currentPage, 
+				tags: similarTags,
+				docs: data, 
+				searchedTags: similarTags.join(", ")
+			});
+	})
 	});
 
 

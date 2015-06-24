@@ -11,7 +11,7 @@ router.post('/submit',function(req,res,next){
 
 	var title = req.body.pageTitle;
 	var content = req.body.pageText;
-	
+	var tags = req.body.pageTags.toLowerCase().split(" ");
 	
  
 function nameCheck(pageTitle){
@@ -33,7 +33,8 @@ var url_name = nameCheck(req.body.pageTitle) || nameCheck(pageNameGenerator());
 	var page = new models.Page({
 		'title': title,
 		'content':content,
-		'url_name': url_name
+		'url_name': url_name,
+		'tags': tags
 	})
 	page.save();
 	res.status(201).redirect('/');

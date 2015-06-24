@@ -2,8 +2,19 @@
 
 {% block title %} {{title}} {% endblock %}
 
+
+
+
 {% block content %}
+
+{% block article%}
+{% endblock %}
+
     <h1>BROWSE MY WIKISTACK</h1>
+
+  {% if searchedTags.length > 0%}
+    <p class="text-muted"> Searched tags: {{ searchedTags}} </p> 
+  {% endif %}
 
   {% if docs.length > 0 %}
 	<ul>

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+    <h1>SEARCH A PAGE</h1>
+    <form action="/search/submit" method="POST">
+
+
+	   	<div id="form_group">
+				<label for="page-tags">PAGE TAGS</label>
+	    	<input name="pageTags" type="text" class="form-control" id="page-tags">
+	    </div>
+
+
+    </form>
+    
+{% endblock %}
