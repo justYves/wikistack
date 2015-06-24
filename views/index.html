@@ -4,10 +4,18 @@
 
 {% block content %}
     <h1>BROWSE MY WIKISTACK</h1>
-    <ul>
-    	<li><a href="#">About Me</a></li>
-    	<li><a href="#">My Projects</a></li>
-    	<li><a href="#">My City</a></li>
-    	<li><a href="#">Code I've written</a></li>
-    </ul>
+
+  {% if docs.length > 0 %}
+	<ul>
+  	{% for doc in docs %}
+  		<li>{{doc|page_link}}</li>
+  	{% endfor %}
+</ul>
+{% else %}
+
+There are no pages. Why don't you <a href= '/add'> add one</a>?
+{% endif %}
+
 {% endblock %}
+
+
